@@ -18,9 +18,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 Route::resource('masters', MasterController::class);
 Route::resource('candidats', CandidatController::class);
+Route::view('/candidature-reussie','livewire.candidature-reussie')->name('candidature-reussie');
+
+
+
+/*------------ Enregistrer le candidat et les masters choisi avec les scores -----------*/
+
+/*-------------------------------Fin Candidat-score-Master--------------------------*/
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
