@@ -221,6 +221,8 @@ class CandidatController extends Controller
         $candidat->moyenne_S4 = $request->input('note_s4');
         $candidat->moyenne_S5 = $request->input('note_s5');
         $candidat->moyenne_S6 = $request->input('note_s6');
+        $randomNumber = mt_rand(100, 99999999999);
+        $candidat->num_dossier = $randomNumber;
         if($request->input('s1') === 'oui'){
             $candidat->session_S1 = 1;
         } else {
@@ -385,6 +387,19 @@ class CandidatController extends Controller
     public function edit(Candidat $candidat)
     {
         //
+    }
+
+    public function store_login_candidat(Request $request){
+        $cin = request('cin');
+        $code_dossier = request('num_dossier');
+        $donnees = Candidat::where();
+        // Vérifier si le CIN et le code de dossier existent dans la base de données
+        // Récupérer les données précédemment saisies par le candidat
+        // Afficher le formulaire de modification avec les données récupérées
+    
+        return view('candidat.modifier-candidature', [
+            'donnees' => $donnees,
+        ]);
     }
 
     /**

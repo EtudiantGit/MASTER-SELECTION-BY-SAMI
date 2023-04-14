@@ -21,7 +21,9 @@ Route::get('/', function () {
 })->name('welcome');
 Route::resource('masters', MasterController::class);
 Route::resource('candidats', CandidatController::class);
-Route::view('/candidature-reussie','livewire.candidature-reussie')->name('candidature-reussie');
+Route::view('/suivi','candidat.login')->name('login_candidat');
+// Route::get('suivre-candidature',[CandidatController::class,'login_candidat'])->name('login_candidat');
+
 
 
 

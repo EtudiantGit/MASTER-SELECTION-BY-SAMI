@@ -31,4 +31,13 @@ class Candidat extends Model
         ->withPivot('score')
         ->withTimestamps();
     }
+    /***Cette méthode sert à generer un numero de dossier aléatoire */
+    // protected static function boot()
+    // {
+    //     parent::boot();
+
+    //     static::creating(function ($candidat) {
+    //         $candidat->num_dossier = mt_rand(1, 9999999999);
+    //     });
+    // }
 }

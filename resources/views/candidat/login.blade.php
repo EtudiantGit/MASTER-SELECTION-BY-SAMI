@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="#">
+        @csrf
+        <label for="cin">CIN :</label>
+        <input type="text" name="cin" id="cin">
+    
+        <label for="code_dossier">Code de dossier :</label>
+        <input type="text" name="code_dossier" id="code_dossier">
+    
+        <button type="submit">Valider</button>
+    </form>
+</body>
+</html>
