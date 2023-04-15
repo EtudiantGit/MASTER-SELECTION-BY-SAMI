@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Candidat;
 use App\Models\Master;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class CandidatController extends Controller
 {
@@ -197,12 +200,12 @@ class CandidatController extends Controller
             'annee_bac' => 'required',
             'annee_last_dip' => 'required',
             'annne_obt_dip' => 'required',
-            'note_s1' => 'required',
-            'note_s2' => 'required',
-            'note_s3' => 'required',
-            'note_s4' => 'required',
-            'note_s5' => 'required',
-            'note_s6' => 'required',
+            'note_s1' => 'required|regex:/^\d{2}(\.\d{1,3})?$/',
+            'note_s2' => 'required|regex:/^\d{2}(\.\d{1,3})?$/',
+            'note_s3' => 'required|regex:/^\d{2}(\.\d{1,3})?$/',
+            'note_s4' => 'required|regex:/^\d{2}(\.\d{1,3})?$/',
+            'note_s5' => 'required|regex:/^\d{2}(\.\d{1,3})?$/',
+            'note_s6' => 'required|regex:/^\d{2}(\.\d{1,3})?$/',
             's1'=>'required',
             's2'=>'required',
             's3'=>'required',
@@ -260,7 +263,7 @@ class CandidatController extends Controller
          * TEST TEST TEST TEST TEST
          * 
          */
-         $masters = Master::whereIn('id', $selectedMasters)->get();
+        $masters = Master::whereIn('id', $selectedMasters)->get();
 
         $scores = [];
         foreach ($masters as $master) {
@@ -352,7 +355,9 @@ class CandidatController extends Controller
             $candidat->masters()->attach($master->id, ['score' => $scores[$master->id]]);
             
         }
-        return redirect()->route('welcome');
+        Session::flash('num_dossier', $candidat->num_dossier);
+        return Redirect::route('welcome')->withInput();
+        // return redirect()->route('welcome');
          /**
           *FIN FIN FIN FIN TEST TEST TEST TEST TEST TEST
           */
