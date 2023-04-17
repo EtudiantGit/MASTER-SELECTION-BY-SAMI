@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-
+use PDF;
 use App\Models\Candidat;
 use App\Models\Master;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+// use Barryvdh\DomPDF\Facade as PDF;
+// use Barryvdh\DomPDF\PDF as DomPDFPDF;
 
 class CandidatController extends Controller
 {
@@ -187,6 +189,8 @@ class CandidatController extends Controller
 
         return $scores;
     }
+
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -197,6 +201,7 @@ class CandidatController extends Controller
     {
         $request->validate([
             'nom' => 'required',
+            'cin' => 'required|min:8|max:8',
             'annee_bac' => 'required',
             'annee_last_dip' => 'required',
             'annne_obt_dip' => 'required',
@@ -213,8 +218,15 @@ class CandidatController extends Controller
             's5'=>'required',
             's6'=>'required',
         ]);
+        
+        $cin = $request->input('cin');
+        $candidatExistant = Candidat::where('cin', $cin)->first();
+        if ($candidatExistant) {
+            return back()->with('error', 'Vous avez déjà déposé votre candidature.');
+        }else{
         $candidat = new Candidat();
         $candidat->nom = $request->input('nom');
+        $candidat->cin = $cin;
         $candidat->annee_bac = $request->input('annee_bac');
         $candidat->date_inscription_dernier_diplome = $request->input('annee_last_dip');
         $candidat->date_obtiention_diplome_licence = $request->input('annne_obt_dip');
@@ -225,6 +237,11 @@ class CandidatController extends Controller
         $candidat->moyenne_S5 = $request->input('note_s5');
         $candidat->moyenne_S6 = $request->input('note_s6');
         $randomNumber = mt_rand(100, 99999999999);
+        // Vérifier si un numéro de dossier similaire existe déjà
+        while (Candidat::where('num_dossier', $randomNumber)->exists()) {
+            // Générer un nouveau numéro de dossier
+            $randomNumber = mt_rand(100, 99999999999);
+        }
         $candidat->num_dossier = $randomNumber;
         if($request->input('s1') === 'oui'){
             $candidat->session_S1 = 1;
@@ -256,14 +273,16 @@ class CandidatController extends Controller
         } else {
             $candidat->session_S6 = 0;
         }
-        $candidat->save();
         $selectedMasters = $request->input('masters',[]);
-
+        $masters = Master::whereIn('id', $selectedMasters)->get();
+        
+        $candidat->save();
+       
         /**
          * TEST TEST TEST TEST TEST
          * 
          */
-        $masters = Master::whereIn('id', $selectedMasters)->get();
+        
 
         $scores = [];
         foreach ($masters as $master) {
@@ -355,8 +374,30 @@ class CandidatController extends Controller
             $candidat->masters()->attach($master->id, ['score' => $scores[$master->id]]);
             
         }
-        Session::flash('num_dossier', $candidat->num_dossier);
-        return Redirect::route('welcome')->withInput();
+        /**
+         * Téléchrager Recap candidature
+         * 
+         */    
+       
+         view()->share([
+            'candidat' => $candidat,
+            'masters'  => $masters
+        ]);
+        $pdf = PDF::loadView('candidat.recap-candidature',[
+            'candidat' => $candidat,
+            'masters'  => $masters
+        ]);
+        return $pdf->download($candidat->nom.".pdf");
+        
+        }
+         /**
+          * Fin recap candidature
+          */
+         
+          
+        // Session::flash('num_dossier', $candidat->num_dossier);
+        // return Redirect::route('welcome')->withInput();
+
         // return redirect()->route('welcome');
          /**
           *FIN FIN FIN FIN TEST TEST TEST TEST TEST TEST

@@ -22,6 +22,9 @@ Route::get('/', function () {
 Route::resource('masters', MasterController::class);
 Route::resource('candidats', CandidatController::class);
 Route::view('/suivi','candidat.login')->name('login_candidat');
+Route::get('/test', function () {
+    return view('candidat.testCreate');
+});
 // Route::get('suivre-candidature',[CandidatController::class,'login_candidat'])->name('login_candidat');
 
 

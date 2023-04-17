@@ -17,16 +17,16 @@ class CreateCandidatsTable extends Migration
             $table->id();
             $table->string('nom');
             // $table->string('prenom');
-            // $table->string('cin')->unique();
+             $table->string('cin')->unique();
             // $table->string('email')->unique();
             // $table->date('date_naissance');
             // $table->string('telephone');
+            // $table->string('num_apogee');
             // $table->string('nationalite');
             // $table->string('sexe');
             //--------------------------
             // $table->string('etablissement');
             // $table->string('université');
-            // $table->string('num_apogee');
             // $table->string('spécialité');
             // $table->string('fillière');
             // $table->string('fonctionnaire');
