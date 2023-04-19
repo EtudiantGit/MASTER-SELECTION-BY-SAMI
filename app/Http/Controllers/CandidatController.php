@@ -202,9 +202,23 @@ class CandidatController extends Controller
         $request->validate([
             'nom' => 'required',
             'cin' => 'required|min:8|max:8',
+
+            'prenom' => 'required',
+            'email' => 'required',
+            'date_naissance' => 'required',
+            'apogee' => '',
+            'telephone' => 'required',
+            'nationalite' => 'required',
+            'spécialité' => 'required',
+            'université' => 'required',
+            'ets' => 'required',
+            'sexe' => 'required',
+            'situation' => 'required',
+            'masters' => 'required|array|min:1',
+
             'annee_bac' => 'required',
             'annee_last_dip' => 'required',
-            'annne_obt_dip' => 'required',
+            'annee_obt_dip' => 'required',
             'note_s1' => 'required|regex:/^\d{2}(\.\d{1,3})?$/',
             'note_s2' => 'required|regex:/^\d{2}(\.\d{1,3})?$/',
             'note_s3' => 'required|regex:/^\d{2}(\.\d{1,3})?$/',
@@ -220,16 +234,33 @@ class CandidatController extends Controller
         ]);
         
         $cin = $request->input('cin');
+        $email = $request->input('email');
         $candidatExistant = Candidat::where('cin', $cin)->first();
+        $candidatExistant1 = Candidat::where('email', $email)->first();
         if ($candidatExistant) {
             return back()->with('error', 'Vous avez déjà déposé votre candidature.');
-        }else{
+        }
+        elseif ($candidatExistant1){
+            return back()->with('error', 'Cet est email existe déja');
+        }
+        else{
         $candidat = new Candidat();
         $candidat->nom = $request->input('nom');
+
+        $candidat->prenom = $request->input('prenom');
+        $candidat->email = $request->input('email');
+        $candidat->date_naissance = $request->input('date_naissance');
+        $candidat->num_apogee = $request->input('apogee');
+        $candidat->telephone = $request->input('telephone');
+        $candidat->nationalite = $request->input('nationalite');
+        $candidat->spécialité = $request->input('spécialité');
+        $candidat->université = $request->input('université');
+        $candidat->etablissement = $request->input('ets');
+
         $candidat->cin = $cin;
         $candidat->annee_bac = $request->input('annee_bac');
         $candidat->date_inscription_dernier_diplome = $request->input('annee_last_dip');
-        $candidat->date_obtiention_diplome_licence = $request->input('annne_obt_dip');
+        $candidat->date_obtiention_diplome_licence = $request->input('annee_obt_dip');
         $candidat->moyenne_S1 = $request->input('note_s1');
         $candidat->moyenne_S2 = $request->input('note_s2');
         $candidat->moyenne_S3 = $request->input('note_s3');
@@ -243,6 +274,16 @@ class CandidatController extends Controller
             $randomNumber = mt_rand(100, 99999999999);
         }
         $candidat->num_dossier = $randomNumber;
+        if($request->input('sexe') === 'homme'){
+            $candidat->sexe = 'HOMME';
+        } else {
+            $candidat->sexe = 'FEMME';
+        }
+        if($request->input('situation') === 'simpleEtudiant'){
+            $candidat->situation = 'SIMPLE ETUDIANT';
+        } else {
+            $candidat->situation = 'FONCTIONNAIRE';
+        }
         if($request->input('s1') === 'oui'){
             $candidat->session_S1 = 1;
         } else {

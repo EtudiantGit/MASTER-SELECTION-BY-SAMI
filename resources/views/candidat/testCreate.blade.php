@@ -13,7 +13,7 @@
             background: #e6e6e6;
         }
     </style>
-  <title>Document</title>
+  <title>Masters FSO</title>
 </head>
 <body>
     
@@ -31,7 +31,7 @@
                 </h3>
             </div>
             <div class="card-body">
-                <form action="#" method="post" enctype="multipart/form-data">
+                <form action="{{ route('candidats.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     {{--  --}}
                     <div class="mb-3">

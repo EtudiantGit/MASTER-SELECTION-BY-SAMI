@@ -16,20 +16,20 @@ class CreateCandidatsTable extends Migration
         Schema::create('candidats', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            // $table->string('prenom');
-             $table->string('cin')->unique();
-            // $table->string('email')->unique();
-            // $table->date('date_naissance');
-            // $table->string('telephone');
-            // $table->string('num_apogee');
-            // $table->string('nationalite');
-            // $table->string('sexe');
+            $table->string('prenom');
+            $table->string('cin')->unique();
+            $table->string('email')->unique();
+            $table->date('date_naissance');
+            $table->string('telephone');
+            $table->string('num_apogee')->nullable();
+            $table->string('nationalite');
+            $table->string('sexe');
             //--------------------------
-            // $table->string('etablissement');
-            // $table->string('université');
-            // $table->string('spécialité');
+            $table->string('etablissement');
+            $table->string('université');
+            $table->string('spécialité');
             // $table->string('fillière');
-            // $table->string('fonctionnaire');
+            $table->string('situation');
             $table->bigInteger('num_dossier')->unique();
             //--------------------------
             $table->integer('annee_bac');

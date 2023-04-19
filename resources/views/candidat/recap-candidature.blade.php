@@ -65,7 +65,7 @@
             </thead>
             <tbody>
               <tr style="border-top: 1px solid grey;">
-                <td style="padding: 10px;">{{ $candidat->nom }}</td>
+                <td style="padding: 10px;">{{ $candidat->nom.' '.$candidat->prenom}}</td>
                 <td style="padding: 10px;">{{ $candidat->moyenne_S1 }}</td>
                 <td style="padding: 10px;">{{ $candidat->moyenne_S2 }}</td>
                 <td style="padding: 10px;">{{ $candidat->moyenne_S3 }}</td>

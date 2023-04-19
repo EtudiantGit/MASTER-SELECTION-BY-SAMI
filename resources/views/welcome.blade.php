@@ -161,7 +161,8 @@ textarea{
                    <h4 class="beat-fade">Date limite de candidtures 28/09/2023</h4> 
                    <h3>
                     <i style="color:red"> Vérifier bien vos informations avant la validation du formulaire, car aucune modification ne sera
-                    permise.</i><hr>Toute fausse information entrainra l'annulation de votre candidature.</h3>
+                    permise, si tout vos coordonées sont correctes un reçu de 
+				pré-inscription sera téléchargé automatiquement.</p></i><hr>Toute fausse information entrainra l'annulation de votre candidature.</h3>
                 </div>
                 <div class="right">
                     
