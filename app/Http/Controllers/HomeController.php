@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $nbCandidature="";
+        $nbCandidatureFEMME="";
+        $nbCandidatureHOMME="";
+        $nbFonctionnaire="";
+        $masters      = Auth::user()->masters()->get();
+        foreach($masters as $master){
+            
+        }
+        return view('home')->with([
+            'masters'      => $masters
+        ]);
     }
 }

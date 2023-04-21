@@ -1,12 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models;
+use App\Http\Requests\CreateMasterRequest;
+use App\Models\Departement;
 use App\Models\Master;
+use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MasterController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +32,12 @@ class MasterController extends Controller
      */
     public function create()
     {
-        return view('master.create');
+        $departements = Departement::all();
+        $types        = Type::all();
+        return view('master.create')->with([
+            'departements' => $departements,
+            'types'        => $types
+        ]);
     }
 
     /**
@@ -33,9 +46,12 @@ class MasterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateMasterRequest $request)
     {
-        //
+        $user = Auth::user();
+        $master = $user->masters()->create($request->validated());
+        $request->session()->flash('status', 'Master Ajouté avec succès');
+        return redirect()->route('home');
     }
 
     /**
@@ -57,7 +73,14 @@ class MasterController extends Controller
      */
     public function edit(Master $master)
     {
-        //
+        $this->authorize('update',$master);
+        $departements = Departement::all();
+        $types        = Type::all();
+        return view('master.edit')->with([
+            'departements' => $departements,
+            'types'        => $types,
+            'master'       => $master
+            ]);
     }
 
     /**
@@ -67,9 +90,12 @@ class MasterController extends Controller
      * @param  \App\Models\Master  $master
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Master $master)
+    public function update(CreateMasterRequest $request, Master $master)
     {
-        //
+        $this->authorize('update',$master);
+        $master->update($request->validated());
+        $request->session()->flash('status', 'Master Modifié avec succès');
+        return redirect()->route('home');
     }
 
     /**
@@ -80,6 +106,8 @@ class MasterController extends Controller
      */
     public function destroy(Master $master)
     {
-        //
+        $this->authorize('delete',$master);
+        Master::destroy($master->id);
+        return redirect()->route('home')->with('error','Master Supprimé');
     }
 }

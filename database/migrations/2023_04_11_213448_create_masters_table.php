@@ -16,9 +16,9 @@ class CreateMastersTable extends Migration
         Schema::create('masters', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            // $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            // $table->foreignId('departement_id')->constrained()->onDelete('cascade');
-            // $table->foreignId('type_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('departement_id')->constrained()->onDelete('cascade');
+            $table->foreignId('type_id')->constrained()->onDelete('cascade');
             // //----------------------------
             $table->double('coef_moyenne_s1');
             $table->double('coef_moyenne_s2');

@@ -15,8 +15,8 @@ class CreateCandidatMasterTable extends Migration
     {
         Schema::create('candidat_master', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('candidat_id')->constrained();
-            $table->foreignId('master_id')->constrained();
+            $table->foreignId('candidat_id')->constrained()->onDelete('cascade');
+            $table->foreignId('master_id')->constrained()->onDelete('cascade');
             $table->float('score');
             $table->timestamps();
         });

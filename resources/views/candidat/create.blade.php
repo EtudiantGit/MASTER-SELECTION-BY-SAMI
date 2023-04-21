@@ -12,6 +12,11 @@
         body{
             background: #e6e6e6;
         }
+        span {
+        content: "*";
+        color: red;
+        margin-left: 5px;
+        }
     </style>
   <title>Masters FSO</title>
 </head>
@@ -31,39 +36,39 @@
                 </h3>
             </div>
             <div class="card-body">
-                <form action="{{ route('candidats.store') }}" method="POST">
+                <form action="{{ route('candidats.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     {{--  --}}
                     <div class="mb-3">
-                       <label for="exampleFormControlInput1" class="form-label">Nom</label>
+                       <label for="exampleFormControlInput1" class="form-label">Nom <span>*</span></label>
                        <input type="text" class="form-control @error('nom') is-invalid @enderror" name="nom" id="">
                        @error('nom')
                        <div class="invalid-feedback">{{ $errors->first('nom') }}</div>
                        @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Prenom</label>
+                        <label for="exampleFormControlInput1" class="form-label">Prenom <span>*</span></label>
                         <input type="text" class="form-control @error('prenom') is-invalid @enderror" name="prenom" id="">
                         @error('prenom')
                         <div class="invalid-feedback">{{ $errors->first('prenom') }}</div>
                         @enderror
                      </div>
                      <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">E-mail</label>
+                        <label for="exampleFormControlInput1" class="form-label">E-mail <span>*</span></label>
                         <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="">
                         @error('email')
                         <div class="invalid-feedback">{{ $errors->first('email') }}</div>
                         @enderror
                      </div>
                      <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Date de naissance</label>
+                        <label for="exampleFormControlInput1" class="form-label">Date de naissance <span>*</span></label>
                         <input type="date" class="form-control @error('date_naissance') is-invalid @enderror" name="date_naissance" id="">
                         @error('date_naissance')
                         <div class="invalid-feedback">{{ $errors->first('date_naissance') }}</div>
                         @enderror
                      </div>
                      <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">CIN</label>
+                        <label for="exampleFormControlInput1" class="form-label">CIN <span>*</span></label>
                         <input type="text" class="form-control @error('cin') is-invalid @enderror" name="cin" id="">
                         @error('cin')
                         <div class="invalid-feedback">{{ $errors->first('cin') }}</div>
@@ -77,14 +82,14 @@
                         @enderror
                      </div>
                      <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Numéro de téléphone</label>
+                        <label for="exampleFormControlInput1" class="form-label">Numéro de téléphone <span>*</span></label>
                         <input type="text" class="form-control @error('telephone') is-invalid @enderror" name="telephone" id="">
                         @error('telephone')
                         <div class="invalid-feedback">{{ $errors->first('telephone') }}</div>
                         @enderror
                      </div>
                      <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Nationalité</label>
+                        <label for="exampleFormControlInput1" class="form-label">Nationalité <span>*</span></label>
                         <input type="text" class="form-control @error('nationalite') is-invalid @enderror" name="nationalite" id="">
                         @error('nationalite')
                         <div class="invalid-feedback">{{ $errors->first('nationalite') }}</div>
@@ -92,7 +97,7 @@
                      </div>
                      <hr>
                      <div class="mb-3">
-                       <label for="" class="form-label">Genre : </label>
+                       <label for="" class="form-label">Genre <span>*</span> :</label>
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <label for="homme" class="form-label">Homme</label>
                       <input type="radio" class="@error('sexe') is-invalid @enderror" name="sexe" value="homme" id="homme">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -104,7 +109,7 @@
                      </div>
                      <hr>
                      <div class="mb-3">
-                      <label for="" class="form-label">Vous etes :</label>
+                      <label for="" class="form-label">Vous etes <span>*</span> :</label>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      <label for="fonctionnaire" class="form-label">Fonctionnaire</label>
                      <input type="radio" class="@error('situation') is-invalid @enderror" name="situation" value="fonctionnaire" id="fonctionnaire">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -117,28 +122,28 @@
                     <hr>
                     {{--  --}}
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Année Baccalauréat</label>
+                        <label for="exampleFormControlInput1" class="form-label">Année Baccalauréat <span>*</span></label>
                         <input type="text" class="form-control @error('annee_bac') is-invalid @enderror" name="annee_bac" id="">
                         @error('annee_bac')
                         <div class="invalid-feedback">{{ $errors->first('annee_bac') }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Année d'inscription au dernier diplome </label> 
+                        <label for="exampleFormControlInput1" class="form-label">Année d'inscription au dernier diplome  <span>*</span></label> 
                         <input type="text" class="form-control @error('annee_last_dip') is-invalid @enderror" name="annee_last_dip" id="">
                         @error('annee_last_dip')
                         <div class="invalid-feedback">{{ $errors->first('annee_last_dip') }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Année d'obtention de licence</label>
+                      <label for="exampleFormControlInput1" class="form-label">Année d'obtention de licence <span>*</span></label>
                         <input type="text" class="form-control @error('annee_obt_dip') is-invalid @enderror" name="annee_obt_dip" id="">
                         @error('annee_obt_dip')
                         <div class="invalid-feedback">{{ $errors->first('annee_obt_dip') }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Spécialié</label>
+                        <label for="exampleFormControlInput1" class="form-label">Spécialié <span>*</span></label>
                           <input type="text" class="form-control @error('spécialité') is-invalid @enderror" name="spécialité" id="">
                           @error('spécialité')
                           <div class="invalid-feedback">{{ $errors->first('spécialité') }}</div>
@@ -146,7 +151,7 @@
 
                       </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Université</label>
+                        <label for="exampleFormControlInput1" class="form-label">Université <span>*</span></label>
                         <select name="université" style="width: 100%;" >
                             <option value="UMP-Oujda" >UMP-Oujda</option>
                             <option value="UCA-Marrakech" >UCA-Marrakech</option>
@@ -158,49 +163,49 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Etablissement</label>
+                        <label for="exampleFormControlInput1" class="form-label">Etablissement <span>*</span></label>
                           <input type="text" class="form-control @error('ets') is-invalid @enderror" name="ets" id="">
                           @error('ets')
                           <div class="invalid-feedback">{{ $errors->first('ets') }}</div>
                           @enderror
                       </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Moyenne S1</label>
+                        <label for="exampleFormControlInput1" class="form-label">Moyenne S1 <span>*</span></label>
                         <input type="text" placeholder="Ex 12.000" class="form-control @error('note_s1') is-invalid @enderror" name="note_s1" id="">
                         @error('note_s1')
                         <div class="invalid-feedback">{{ $errors->first('note_s1') }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                       <label for="exampleFormControlInput1" class="form-label">Moyenne S2</label>
+                       <label for="exampleFormControlInput1" class="form-label">Moyenne S2 <span>*</span></label>
                         <input type="text" placeholder="Ex 12.000" class="form-control @error('note_s2') is-invalid @enderror" name="note_s2" id="">
                         @error('note_s2')
                         <div class="invalid-feedback">{{ $errors->first('note_s2') }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Moyenne S3</label>
+                        <label for="exampleFormControlInput1" class="form-label">Moyenne S3 <span>*</span></label>
                         <input type="text" placeholder="Ex 12.000" class="form-control @error('note_s3') is-invalid @enderror" name="note_s3" id="">
                         @error('note_s3')
                         <div class="invalid-feedback">{{ $errors->first('note_s3') }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Moyenne S4</label>
+                        <label for="exampleFormControlInput1" class="form-label">Moyenne S4 <span>*</span></label>
                         <input type="text" placeholder="Ex 12.000" class="form-control @error('note_s4') is-invalid @enderror" name="note_s4" id="">
                         @error('note_s4')
                         <div class="invalid-feedback">{{ $errors->first('note_s4') }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Moyenne S5</label>
+                        <label for="exampleFormControlInput1" class="form-label">Moyenne S5 <span>*</span></label>
                         <input type="text" placeholder="Ex 12.000" class="form-control @error('note_s5') is-invalid @enderror" name="note_s5" id="">
                         @error('note_s5')
                         <div class="invalid-feedback">{{ $errors->first('note_s5') }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Moyenne S6</label>
+                        <label for="exampleFormControlInput1" class="form-label">Moyenne S6 <span>*</span></label>
                         <input type="text" placeholder="Ex 12.000" class="form-control @error('note_s5') is-invalid @enderror" name="note_s6" id="">
                         @error('note_s6')
                         <div class="invalid-feedback">{{ $errors->first('note_s6') }}</div>
@@ -211,7 +216,7 @@
                 
                     <!--session de semestre-->
                     <center>
-                     <b  class="form-label">Avez-vous validé S1 en session ordinaire ?</b>  &nbsp;&nbsp;&nbsp;
+                     <b  class="form-label">Avez-vous validé S1 en session ordinaire ? <span>*</span></b>  &nbsp;&nbsp;&nbsp;
                       <label for="option1">Oui</label>
                       <input type="radio" class="@error('s1') is-invalid @enderror" name="s1" value="oui" id="option1">
                       
@@ -221,7 +226,7 @@
                       <div class="invalid-feedback">{{ $errors->first('s1') }}</div>
                       @enderror
                       <br>
-                      <b>Avez-vous validé S2 en session ordinaire ?</b> &nbsp;&nbsp;&nbsp;
+                      <b>Avez-vous validé S2 en session ordinaire ? <span>*</span></b> &nbsp;&nbsp;&nbsp;
                       <label for="option3">Oui</label>
                       <input type="radio" class="@error('s2') is-invalid @enderror" name="s2" value="oui" id="option3">
                       
@@ -231,7 +236,7 @@
                       <div class="invalid-feedback">{{ $errors->first('s2') }}</div>
                       @enderror
                       <br>
-                      <b>Avez-vous validé S3 en session ordinaire ?</b> &nbsp;&nbsp;&nbsp;
+                      <b>Avez-vous validé S3 en session ordinaire ? <span>*</span></b> &nbsp;&nbsp;&nbsp;
                       <label for="option5">Oui</label>
                       <input type="radio" class="@error('s3') is-invalid @enderror" name="s3" value="oui" id="option5">
                       
@@ -241,7 +246,7 @@
                       <div class="invalid-feedback">{{ $errors->first('s3') }}</div>
                       @enderror
                       <br>
-                      <b>Avez-vous validé S4 en session ordinaire ?</b> &nbsp;&nbsp;&nbsp;
+                      <b>Avez-vous validé S4 en session ordinaire ? <span>*</span></b> &nbsp;&nbsp;&nbsp;
                       <label for="option7">Oui</label>
                       <input type="radio" class="@error('s4') is-invalid @enderror" name="s4" value="oui" id="option7">
                       
@@ -251,7 +256,7 @@
                       <div class="invalid-feedback">{{ $errors->first('s4') }}</div>
                       @enderror
                       <br>
-                      <b>Avez-vous validé S5 en session ordinaire ?</b> &nbsp;&nbsp;&nbsp;
+                      <b>Avez-vous validé S5 en session ordinaire ? <span>*</span></b> &nbsp;&nbsp;&nbsp;
                       <label for="option9">Oui</label>
                       <input type="radio" class="@error('s5') is-invalid @enderror" name="s5" value="oui" id="option9">
                       
@@ -261,7 +266,7 @@
                       <div class="invalid-feedback">{{ $errors->first('s5') }}</div>
                       @enderror
                       <br>
-                      <b>Avez-vous validé S6 en session ordinaire ?</b> &nbsp;&nbsp;&nbsp;
+                      <b>Avez-vous validé S6 en session ordinaire ? <span>*</span></b> &nbsp;&nbsp;&nbsp;
                       <label for="option11">Oui</label>
                       <input type="radio" class="@error('s6') is-invalid @enderror" name="s6" value="oui" id="option11">
                       
@@ -276,7 +281,7 @@
                 
                     <!--fin session de semestre-->
                         <div class="mb-3">
-                        <label><b><u>Choix de formation : </u></b></label><br>
+                        <label><b><u>Choix de formation </u></b><span>*</span></label><br>
                       </div>
                         @foreach($masters as $master)
                         &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
@@ -292,13 +297,35 @@
                        
                     <br>
                     <hr>
-                      {{-- <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Dossier de candidature</label>
-                        <input type="file" class="form-control" name="image">
-                      </div> --}}
-                    <div class="mb-3" style="text-align: right">
-                        <button type="submit" class="btn btn-primary">Soummetre</button>
-                    </div>
+                      <div class="mb-3">
+                        <label><b><u>Dossier de candidature</u></b></label><br><br>
+                        Veuillez importer sur un seul fichier pdf les documents suivants :<br>
+                       
+                        
+                                <p> &nbsp;&nbsp;&nbsp; &nbsp;
+                                     - Relevé de notes de S1 à S6.<br> &nbsp;&nbsp;&nbsp; &nbsp;
+                                    - Copie certifiée conforme du diplome bac+2.<br> &nbsp;&nbsp;&nbsp; &nbsp;
+                                    - Copie certifiée conforme du diplome bac+3.<br> &nbsp;&nbsp;&nbsp; &nbsp;
+                                    - Copie certifiée conforme du baccalauréat. 
+
+                                </p>
+                    
+                        <input type="file" class="form-control @error('file') is-invalid @enderror" name="file" required>
+                        @error('file')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                      </div>
+                      <div class="mb-3">
+                            <div class="row">
+                                <div class="col-6">
+                                <a href="{{route('welcome')}}"  class="btn btn-warning">{{ __('<< Acceuill')}}</a>
+                                </div>
+                                <div class="col-6 text-end">
+                               <button  type="submit" class="btn btn-primary">Soumettre</button>
+                                </div>
+                            </div>
+                        </div>
+                    
                 </form>
             </div>
         </div>

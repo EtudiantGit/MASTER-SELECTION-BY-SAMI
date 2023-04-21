@@ -149,7 +149,7 @@ textarea{
   }
 }
     </style>
-    <title>Document</title>
+    <title>Platforme Master</title>
 </head>
 <body>
 
@@ -168,8 +168,8 @@ textarea{
                     
                     <h2>Bienvenue sur la platforme d'inscription aux masters de la FSO 2022-2023<h2>
 <a href="{{route('login')}}" class="btn btn-primary">Espace Coordonateur</a><br><br>
-<a href="{{route('candidats.create')}}" class="btn btn-primary">Déposer ma candidature</a><br><br>
-<a href="{{route('login_candidat')}}" class="btn btn-primary">Suivre ma candidature</a>
+<a href="{{route('candidats.create')}}" class="btn btn-primary">Déposer ma candidature</a>
+{{-- <a href="{{route('login_candidat')}}" class="btn btn-primary">Suivre ma candidature</a> --}}
                 </div>
             </div>
         </div>

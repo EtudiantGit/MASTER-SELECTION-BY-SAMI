@@ -76,7 +76,34 @@
             </tbody>
           </table>
     <hr>
-          <br><br><br><br><br><br>
+          <br><br><div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Informations personnelles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">CIN</th>
+                        <td>{{ $candidat->cin }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Nom</th>
+                        <td>{{ $candidat->nom }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Prénom</th>
+                        <td>{{ $candidat->prenom }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Email</th>
+                        <td>{{ $candidat->email }}</td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </div><br><br>
     <b>Fillière choisies :</b> <br>
     @foreach ($masters as $master)
     <ul>

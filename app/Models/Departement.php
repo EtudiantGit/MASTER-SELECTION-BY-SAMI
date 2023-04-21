@@ -8,5 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Departement extends Model
 {
     use HasFactory;
-   // protected $table = 'departements';
+    protected $table = 'departements';
+
+    public function masters(){
+        return $this->hasMany(Master::class);
+    }
 }

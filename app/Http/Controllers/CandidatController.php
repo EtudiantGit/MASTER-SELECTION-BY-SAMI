@@ -200,11 +200,11 @@ class CandidatController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nom' => 'required',
-            'cin' => 'required|min:8|max:8',
+            'nom' => 'required|string',
+            'cin' => 'required|unique:candidats,cin|min:8|max:8',
 
-            'prenom' => 'required',
-            'email' => 'required',
+            'prenom' => 'required|string',
+            'email' => 'required|email|unique:candidats,email',
             'date_naissance' => 'required',
             'apogee' => '',
             'telephone' => 'required',
@@ -231,19 +231,28 @@ class CandidatController extends Controller
             's4'=>'required',
             's5'=>'required',
             's6'=>'required',
-        ]);
+
+            'file' => 'required|mimes:pdf|max:2048'
+        ],
+        [
+            'file.mimes' => 'Le fichier doit être de type PDF', // message d'erreur personnalisé
+            'masters.min' => 'Vous devez au moins choisir un master'
+        ]
+    
+    
+        );
         
-        $cin = $request->input('cin');
-        $email = $request->input('email');
-        $candidatExistant = Candidat::where('cin', $cin)->first();
-        $candidatExistant1 = Candidat::where('email', $email)->first();
-        if ($candidatExistant) {
-            return back()->with('error', 'Vous avez déjà déposé votre candidature.');
-        }
-        elseif ($candidatExistant1){
-            return back()->with('error', 'Cet est email existe déja');
-        }
-        else{
+        // $cin = $request->input('cin');
+        // $email = $request->input('email');
+        // $candidatExistant = Candidat::where('cin', $cin)->first();
+        // $candidatExistant1 = Candidat::where('email', $email)->first();
+        // if ($candidatExistant) {
+        //     return back()->with('error', 'Vous avez déjà déposé votre candidature.');
+        // }
+        // elseif ($candidatExistant1){
+        //     return back()->with('error', 'Cet est email existe déja');
+        // }
+        // else{
         $candidat = new Candidat();
         $candidat->nom = $request->input('nom');
 
@@ -256,8 +265,13 @@ class CandidatController extends Controller
         $candidat->spécialité = $request->input('spécialité');
         $candidat->université = $request->input('université');
         $candidat->etablissement = $request->input('ets');
-
-        $candidat->cin = $cin;
+        // Enregistrer le fichier pdf du candidats
+                $file = $request->file('file');
+                $filename = $request->input('cin') . '.pdf';
+                $file->storeAs('dossier-candidature', $filename);
+                $candidat->document_candidat = $filename;
+        //
+        $candidat->cin = $request->input('cin');
         $candidat->annee_bac = $request->input('annee_bac');
         $candidat->date_inscription_dernier_diplome = $request->input('annee_last_dip');
         $candidat->date_obtiention_diplome_licence = $request->input('annee_obt_dip');
@@ -430,7 +444,7 @@ class CandidatController extends Controller
         ]);
         return $pdf->download($candidat->nom.".pdf");
         
-        }
+        
          /**
           * Fin recap candidature
           */

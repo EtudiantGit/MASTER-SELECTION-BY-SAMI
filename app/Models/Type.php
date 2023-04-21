@@ -8,5 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Type extends Model
 {
     use HasFactory;
-    //protected $table = 'types';
+    protected $table = 'types';
+
+    public function masters(){
+        return $this->hasMany(Master::class);
+    }
 }
