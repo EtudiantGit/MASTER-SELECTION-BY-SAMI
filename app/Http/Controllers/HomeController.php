@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\CandidatsDataExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Master;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PDF;
+
 
 class HomeController extends Controller
 {
@@ -44,5 +47,25 @@ class HomeController extends Controller
             'master'  => $master
         ]);
         return $pdf->download($master->title.".pdf");
+        }
+
+
+
+
+        
+    public function telechargerListeDesCandidatsEXCEL($id){
+        $master = Master::findOrFail($id);
+        $filename = 'candidats-' . $master->title . '.xlsx';
+    
+        return Excel::download(new CandidatsDataExport($master), $filename);
+        
     }
-}
+    
+    
+    
+    
+    
+    
+    
+    
+    }

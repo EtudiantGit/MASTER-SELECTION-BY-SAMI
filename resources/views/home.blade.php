@@ -54,8 +54,8 @@
                     <p><b>Nombre d'Hommes :</b> {{ $master->candidats->where('sexe','=','HOMME')->count() }}  </p>
                     <p><b>Nombre de Fonctionnaires :</b> {{ $master->candidats->where('situation','=','FONCTIONNAIRE')->count() }} </p>
                     <p><b>Liste des candidats en format PDF :</b> <a href="{{route('downloadPDF',$master->id)}}">Télécharger</a></p>
-                    <p><b>Liste des candidats en format Excel :</b> <a href="#">Télécharger</a></p>
-                        <table style="border-collapse: collapse; width: 100%;">
+                    <p><b>Liste des candidats en format Excel :</b> <a href="{{route('downloadEXCEL',$master->id)}}">Télécharger</a></p>
+                        {{-- <table style="border-collapse: collapse; width: 100%;">
                             <tr>
                                 <th>ID</th>
                                 <th>NOM</th>
@@ -74,7 +74,7 @@
                                 <td>{{$candidat->pivot->score}}</td>
                             </tr>
                             @endforeach
-                        </table>
+                        </table> --}}
                    
                 </div>
 

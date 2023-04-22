@@ -78,43 +78,46 @@
                         <tr>
                             <div>
                                 <td><label for="">Coef moyennne s1 </label></td>
-                                <td><input name="coef_moyenne_s1" type="text"></td>
+                                <td><input class="form-control @error('coef_moyenne_s1')  is-invalid  @enderror" name="coef_moyenne_s1" type="text"></td>
+                                @error('coef_moyenne_s1')
+                                <div class="text-danger">{{ $message }}</div>
+                              @enderror
                             </div>
                         </tr>
                         <tr>
                             <div>
                                <td><label for="">Coef moyennne s2</label></td>
-                                <td><input name="coef_moyenne_s2" type="text"></td>
+                                <td><input class="form-control @error('coef_moyenne_s2')  is-invalid  @enderror" name="coef_moyenne_s2" type="text"></td>
                             </div>
                         </tr>
                         <tr>
                             <div>
                                 <td><label for="">Coef moyennne s3</label></td>
-                                <td><input name="coef_moyenne_s3" type="text"></td>
+                                <td><input class="form-control @error('coef_moyenne_s3')  is-invalid  @enderror" name="coef_moyenne_s3" type="text"></td>
                             </div>
                         </tr>
                         <tr>
                             <div>
                                 <td><label for="">Coef moyennne s4</label></td>
-                                <td><input name="coef_moyenne_s4" type="text"></td>
+                                <td><input class="form-control @error('coef_moyenne_s4')  is-invalid  @enderror" name="coef_moyenne_s4" type="text"></td>
                             </div>
                         </tr>
                         <tr>
                             <div>
                                 <td><label for="">Coef moyennne s5</label></td>
-                                <td><input name="coef_moyenne_s5" type="text"></td>
+                                <td><input class="form-control @error('coef_moyenne_s5')  is-invalid  @enderror" name="coef_moyenne_s5" type="text"></td>
                             </div>
                         </tr>
                         <tr>
                             <div>
                                 <td><label for="">Coef moyennne s6</label></td>
-                                <td><input name="coef_moyenne_s6" type="text"></td>
+                                <td><input class="form-control @error('coef_moyenne_s6')  is-invalid  @enderror" name="coef_moyenne_s6" type="text"></td>
                             </div>
                         </tr>
                         <tr>
                             <div>
                                 <td><label for="">Coef moyenne licence</label></td>
-                                <td><input name="coef_moyenne_licence" type="text"></td>
+                                <td><input class="form-control @error('coef_moyenne_licence')  is-invalid  @enderror" name="coef_moyenne_licence" type="text"></td>
                             </div>
                         </tr>
                         </table>

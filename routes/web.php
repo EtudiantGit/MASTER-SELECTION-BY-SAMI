@@ -23,6 +23,7 @@ Route::get('/', function () {
 Route::resource('masters', MasterController::class);
 Route::resource('candidats', CandidatController::class);
 Route::get('liste/{id}',[HomeController::class,'telechargerListeDesCandidats'])->name('downloadPDF');
+Route::get('/masters/{id}/download-excel',[HomeController::class,'telechargerListeDesCandidatsEXCEL'])->name('downloadEXCEL');
 
 
 
