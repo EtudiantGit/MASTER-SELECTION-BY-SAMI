@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Master;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class HomeController extends Controller
 {
@@ -29,11 +31,18 @@ class HomeController extends Controller
         $nbCandidatureHOMME="";
         $nbFonctionnaire="";
         $masters      = Auth::user()->masters()->get();
-        foreach($masters as $master){
-            
-        }
         return view('home')->with([
             'masters'      => $masters
         ]);
+    }
+    public function telechargerListeDesCandidats($id){
+        $master     = Master::find($id) ;
+        view()->share([
+            'master'  => $master
+        ]);
+        $pdf = PDF::loadView('master.liste-candidats',[
+            'master'  => $master
+        ]);
+        return $pdf->download($master->title.".pdf");
     }
 }

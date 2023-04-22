@@ -53,7 +53,29 @@
                     <p><b>Nombre de Femmes :</b> {{ $master->candidats->where('sexe','=','FEMME')->count() }} </p>
                     <p><b>Nombre d'Hommes :</b> {{ $master->candidats->where('sexe','=','HOMME')->count() }}  </p>
                     <p><b>Nombre de Fonctionnaires :</b> {{ $master->candidats->where('situation','=','FONCTIONNAIRE')->count() }} </p>
-                    <p><b>Liste des candidats :</b> <a href="#">Télécharger</a></p>
+                    <p><b>Liste des candidats en format PDF :</b> <a href="{{route('downloadPDF',$master->id)}}">Télécharger</a></p>
+                    <p><b>Liste des candidats en format Excel :</b> <a href="#">Télécharger</a></p>
+                        <table style="border-collapse: collapse; width: 100%;">
+                            <tr>
+                                <th>ID</th>
+                                <th>NOM</th>
+                                <th>PRENOM</th>
+                                <th>CIN</th>
+                                <th>E-mail</th>
+                                <th>SCORE</th>
+                            </tr>
+                            @foreach ($master->candidats->all() as $candidat)
+                            <tr>
+                                <td>{{$candidat->id}}</td>
+                                <td>{{$candidat->nom}}</td>
+                                <td>{{$candidat->prenom}}</td>
+                                <td>{{$candidat->cin}}</td>
+                                <td>{{$candidat->email}}</td>
+                                <td>{{$candidat->pivot->score}}</td>
+                            </tr>
+                            @endforeach
+                        </table>
+                   
                 </div>
 
             </div>

@@ -57,6 +57,7 @@ body{
 	background: url("") no-repeat center;
 	background-size: cover;
 	height: 100%;
+	padding: 25px 40px;
 }
 
 .right{
@@ -157,19 +158,20 @@ textarea{
         <div class="container">
             <div class="contact-box">
                 <div class="left">
-                    <br><br><br>
+                    <br>
                    <h4 class="beat-fade">Date limite de candidtures 28/09/2023</h4> 
-                   <h3>
-                    <i style="color:red"> Vérifier bien vos informations avant la validation du formulaire, car aucune modification ne sera
+                   
+                    <h4 style="color:rgb(0, 0, 0);"> Vérifier bien vos informations avant la validation du formulaire, car aucune modification ne sera
                     permise, si tout vos coordonées sont correctes un reçu de 
-				pré-inscription sera téléchargé automatiquement.</p></i><hr>Toute fausse information entrainra l'annulation de votre candidature.</h3>
+				pré-inscription sera téléchargé automatiquement.</h4>
+				<hr><h3 style="color: rgb(177, 0, 168);">Toute fausse information entrainra l'annulation de votre candidature.</h3>
                 </div>
+
                 <div class="right">
-                    
                     <h2>Bienvenue sur la platforme d'inscription aux masters de la FSO 2022-2023<h2>
-<a href="{{route('login')}}" class="btn btn-primary">Espace Coordonateur</a><br><br>
-<a href="{{route('candidats.create')}}" class="btn btn-primary">Déposer ma candidature</a>
-{{-- <a href="{{route('login_candidat')}}" class="btn btn-primary">Suivre ma candidature</a> --}}
+					<a href="{{route('login')}}" class="btn btn-primary">Espace Coordonateur</a><br><br>
+					<a href="{{route('candidats.create')}}" class="btn btn-primary">Déposer ma candidature</a>
+					{{-- <a href="{{route('login_candidat')}}" class="btn btn-primary">Suivre ma candidature</a> --}}
                 </div>
             </div>
         </div>

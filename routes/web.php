@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CandidatController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MasterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -21,18 +22,10 @@ Route::get('/', function () {
 })->name('welcome');
 Route::resource('masters', MasterController::class);
 Route::resource('candidats', CandidatController::class);
-Route::view('/suivi','candidat.login')->name('login_candidat');
-Route::get('/test', function () {
-    return view('candidat.testCreate');
-});
-// Route::get('suivre-candidature',[CandidatController::class,'login_candidat'])->name('login_candidat');
+Route::get('liste/{id}',[HomeController::class,'telechargerListeDesCandidats'])->name('downloadPDF');
 
 
 
-
-/*------------ Enregistrer le candidat et les masters choisi avec les scores -----------*/
-
-/*-------------------------------Fin Candidat-score-Master--------------------------*/
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
