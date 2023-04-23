@@ -4,15 +4,15 @@
     <table>
         <thead>
         <tr>
-            <th>CIN</th>
-            <th>NOM</th>
-            <th>PRENOM</th>
-            <th>E-mail</th>
-            <th>Sexe</th>
-            <th>Date de Naissance</th>
-            <th>Téléphone</th>
-            <th>Etablissement</th>
-            <th>SCORE</th>
+            <th><b>CIN</b></th>
+            <th><b>NOM</b></th>
+            <th><b>PRENOM</b></th>
+            <th><b>E-mail</b></th>
+            <th><b>Sexe</b></th>
+            <th><b>Date de Naissance</b></th>
+            <th><b>Téléphone</b></th>
+            <th><b>Etablissement</b></th>
+            <th><b>SCORE</b></th>
         </tr>
         </thead>
         <tbody>

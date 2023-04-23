@@ -201,7 +201,7 @@ class CandidatController extends Controller
     {
         $request->validate([
             'nom' => 'required|string',
-            'cin' => 'required|unique:candidats,cin|min:8|max:8',
+            'cin' => 'required|unique:candidats,cin|max:8',
 
             'prenom' => 'required|string',
             'email' => 'required|email|unique:candidats,email',

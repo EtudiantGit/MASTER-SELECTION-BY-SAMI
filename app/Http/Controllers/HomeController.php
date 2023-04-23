@@ -29,10 +29,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $nbCandidature="";
-        $nbCandidatureFEMME="";
-        $nbCandidatureHOMME="";
-        $nbFonctionnaire="";
         $masters      = Auth::user()->masters()->get();
         return view('home')->with([
             'masters'      => $masters
@@ -48,11 +44,6 @@ class HomeController extends Controller
         ]);
         return $pdf->download($master->title.".pdf");
         }
-
-
-
-
-        
     public function telechargerListeDesCandidatsEXCEL($id){
         $master = Master::findOrFail($id);
         $filename = 'candidats-' . $master->title . '.xlsx';
