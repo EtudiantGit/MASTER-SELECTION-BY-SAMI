@@ -491,16 +491,16 @@ class CandidatController extends Controller
     }
 
     public function store_login_candidat(Request $request){
-        $cin = request('cin');
-        $code_dossier = request('num_dossier');
-        $donnees = Candidat::where();
-        // Vérifier si le CIN et le code de dossier existent dans la base de données
-        // Récupérer les données précédemment saisies par le candidat
-        // Afficher le formulaire de modification avec les données récupérées
+        // $cin = request('cin');
+        // $code_dossier = request('num_dossier');
+        // $donnees = Candidat::where();
+        // // Vérifier si le CIN et le code de dossier existent dans la base de données
+        // // Récupérer les données précédemment saisies par le candidat
+        // // Afficher le formulaire de modification avec les données récupérées
     
-        return view('candidat.modifier-candidature', [
-            'donnees' => $donnees,
-        ]);
+        // return view('candidat.modifier-candidature', [
+        //     'donnees' => $donnees,
+        // ]);
     }
 
     /**
