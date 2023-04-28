@@ -255,7 +255,6 @@ class CandidatController extends Controller
         // else{
         $candidat = new Candidat();
         $candidat->nom = $request->input('nom');
-
         $candidat->prenom = $request->input('prenom');
         $candidat->email = $request->input('email');
         $candidat->date_naissance = $request->input('date_naissance');
@@ -294,7 +293,7 @@ class CandidatController extends Controller
             $candidat->sexe = 'FEMME';
         }
         if($request->input('situation') === 'simpleEtudiant'){
-            $candidat->situation = 'SIMPLE ETUDIANT';
+            $candidat->situation = 'ETUDIANT';
         } else {
             $candidat->situation = 'FONCTIONNAIRE';
         }

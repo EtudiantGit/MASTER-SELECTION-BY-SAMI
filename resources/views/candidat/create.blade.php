@@ -97,7 +97,7 @@
                      </div>
                      <hr>
                      <div class="mb-3">
-                       <label for="" class="form-label">Genre <span>*</span> :</label>
+                       <label for="" class="form-label">Genre <span>*</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <label for="homme" class="form-label">Homme</label>
                       <input type="radio" class="@error('sexe') is-invalid @enderror" name="sexe" value="homme" id="homme">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -113,7 +113,7 @@
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      <label for="fonctionnaire" class="form-label">Fonctionnaire</label>
                      <input type="radio" class="@error('situation') is-invalid @enderror" name="situation" value="fonctionnaire" id="fonctionnaire">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <label for="simpleEtudiant" class="form-label">Simple Etudiant</label>
+                     <label for="simpleEtudiant" class="form-label">Etudiant</label>
                      <input type="radio" class="@error('situation') is-invalid @enderror" name="situation" value="simpleEtudiant" id="simpleEtudiant">
                      @error('situation')
                         <div class="invalid-feedback">{{ $errors->first('situation') }}</div>
@@ -283,14 +283,16 @@
                         <div class="mb-3">
                         <label><b><u>Choix de formation </u></b><span>*</span></label><br>
                       </div>
-                        @foreach($masters as $master)
+                        @forelse($masters as $master)
                         &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
                             <input type="checkbox" class="@error('masters') is-invalid @enderror"  id="{{ $master->id }}" name="masters[]" value="{{ $master->id }}">
                             <label for="{{ $master->id }}">{{ $master->title }}</label><br>
-                        @endforeach
+                        @empty
+                            Aucun master n'est ouvert pour le moment.
+                        @endforelse
                         @error('masters')
                         <div class="invalid-feedback">{{ $errors->first('masters') }}</div>
                         @enderror

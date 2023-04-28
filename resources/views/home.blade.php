@@ -18,7 +18,7 @@
                     <div class="alert alert-success">
                         {{ session()->get('status') }}
                     </div>
-              @endif
+            @endif
 
 
         @forelse ($masters as $master)

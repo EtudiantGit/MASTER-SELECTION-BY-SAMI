@@ -43,7 +43,7 @@ class HomeController extends Controller
             'master'  => $master
         ]);
         return $pdf->download($master->title.".pdf");
-        }
+    }
     public function telechargerListeDesCandidatsEXCEL($id){
         $master = Master::findOrFail($id);
         $filename = 'candidats-' . $master->title . '.xlsx';
