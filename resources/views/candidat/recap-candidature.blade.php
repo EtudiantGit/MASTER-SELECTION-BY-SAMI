@@ -84,6 +84,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <br>
                     <tr>
                         <th scope="row">CIN</th>
                         <td>{{ $candidat->cin }}</td>

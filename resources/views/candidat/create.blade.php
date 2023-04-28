@@ -142,14 +142,27 @@
                         <div class="invalid-feedback">{{ $errors->first('annee_obt_dip') }}</div>
                         @enderror
                     </div>
-                    <div class="mb-3">
+                      <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Spécialié <span>*</span></label>
-                          <input type="text" class="form-control @error('spécialité') is-invalid @enderror" name="spécialité" id="">
-                          @error('spécialité')
-                          <div class="invalid-feedback">{{ $errors->first('spécialité') }}</div>
-                          @enderror
-
-                      </div>
+                        <select name="spécialité" style="width: 100%;" >
+                            <option value="Informatique" >Informatique</option>
+                            <option value="Mathématique" >Mathématique</option>
+                            <option value="Physique" >Physique</option>
+                            <option value="Chimie" >Chimie</option>
+                            <option value="Biologie" >Biologie</option>
+                            <option value="Géologie" >Géologie</option>
+                            <option value="Mécanique" >Mécanique</option>
+                            <option value="Eléctronique" >Eléctronique</option>
+                        </select>
+                    </div>
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Type Diplome <span>*</span></label>
+                        <select name="type_diplome" style="width: 100%;" >
+                            <option value="LF" >Licence Fondamentale</option>
+                            <option value="LP" >Licence Professionnelle</option>
+                            <option value="LST" >Licence Science et Techniques</option>
+                        </select>
+                    </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Université <span>*</span></label>
                         <select name="université" style="width: 100%;" >
@@ -291,7 +304,7 @@
                             <input type="checkbox" class="@error('masters') is-invalid @enderror"  id="{{ $master->id }}" name="masters[]" value="{{ $master->id }}">
                             <label for="{{ $master->id }}">{{ $master->title }}</label><br>
                         @empty
-                            Aucun master n'est ouvert pour le moment.
+                            <h5 style="color:red">Aucun master n'est ouvert pour le moment.</h5>
                         @endforelse
                         @error('masters')
                         <div class="invalid-feedback">{{ $errors->first('masters') }}</div>

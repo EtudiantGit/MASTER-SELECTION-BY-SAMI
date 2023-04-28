@@ -31,6 +31,7 @@ class CandidatsDataExport implements FromView, WithHeadings , WithColumnWidths
             'date_naissance',
             'telephone',
             'etablissement',
+            'spécialité',
             'sexe',
             'Score'
         ];
@@ -41,12 +42,13 @@ class CandidatsDataExport implements FromView, WithHeadings , WithColumnWidths
             'A' => 20,
             'B' => 20,
             'C' => 20,
-            'D' => 20,
+            'D' => 25,
             'E' => 20,
             'F' => 20,
             'G' => 20,
             'H' => 20,
             'I' => 20,
+            'J' => 20,
         ];
     }
     

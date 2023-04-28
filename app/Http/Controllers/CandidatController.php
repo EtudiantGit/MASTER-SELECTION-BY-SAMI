@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use PDF;
 use App\Models\Candidat;
+use App\Models\DateLimite;
 use App\Models\Master;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -211,6 +212,7 @@ class CandidatController extends Controller
             'nationalite' => 'required',
             'spécialité' => 'required',
             'université' => 'required',
+            'type_diplome' => 'required',
             'ets' => 'required',
             'sexe' => 'required',
             'situation' => 'required',
@@ -263,6 +265,7 @@ class CandidatController extends Controller
         $candidat->nationalite = $request->input('nationalite');
         $candidat->spécialité = $request->input('spécialité');
         $candidat->université = $request->input('université');
+        $candidat->type_diplome = $request->input('type_diplome');
         $candidat->etablissement = $request->input('ets');
         // Enregistrer le fichier pdf du candidats
                 $file = $request->file('file');

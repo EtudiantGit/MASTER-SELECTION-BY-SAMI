@@ -78,7 +78,7 @@
                         <tr>
                             <div>
                                 <td><label for="">Coef moyennne s1 </label></td>
-                                <td><input class="form-control @error('coef_moyenne_s1')  is-invalid  @enderror" name="coef_moyenne_s1" type="text"></td>
+                                <td><input value="1" class="form-control @error('coef_moyenne_s1')  is-invalid  @enderror" name="coef_moyenne_s1" type="text"></td>
                                 @error('coef_moyenne_s1')
                                 <div class="text-danger">{{ $message }}</div>
                               @enderror
@@ -87,37 +87,37 @@
                         <tr>
                             <div>
                                <td><label for="">Coef moyennne s2</label></td>
-                                <td><input class="form-control @error('coef_moyenne_s2')  is-invalid  @enderror" name="coef_moyenne_s2" type="text"></td>
+                                <td><input value="1" class="form-control @error('coef_moyenne_s2')  is-invalid  @enderror" name="coef_moyenne_s2" type="text"></td>
                             </div>
                         </tr>
                         <tr>
                             <div>
                                 <td><label for="">Coef moyennne s3</label></td>
-                                <td><input class="form-control @error('coef_moyenne_s3')  is-invalid  @enderror" name="coef_moyenne_s3" type="text"></td>
+                                <td><input value="1" class="form-control @error('coef_moyenne_s3')  is-invalid  @enderror" name="coef_moyenne_s3" type="text"></td>
                             </div>
                         </tr>
                         <tr>
                             <div>
                                 <td><label for="">Coef moyennne s4</label></td>
-                                <td><input class="form-control @error('coef_moyenne_s4')  is-invalid  @enderror" name="coef_moyenne_s4" type="text"></td>
+                                <td><input value="1" class="form-control @error('coef_moyenne_s4')  is-invalid  @enderror" name="coef_moyenne_s4" type="text"></td>
                             </div>
                         </tr>
                         <tr>
                             <div>
                                 <td><label for="">Coef moyennne s5</label></td>
-                                <td><input class="form-control @error('coef_moyenne_s5')  is-invalid  @enderror" name="coef_moyenne_s5" type="text"></td>
+                                <td><input value="1" class="form-control @error('coef_moyenne_s5')  is-invalid  @enderror" name="coef_moyenne_s5" type="text"></td>
                             </div>
                         </tr>
                         <tr>
                             <div>
                                 <td><label for="">Coef moyennne s6</label></td>
-                                <td><input class="form-control @error('coef_moyenne_s6')  is-invalid  @enderror" name="coef_moyenne_s6" type="text"></td>
+                                <td><input value="1" class="form-control @error('coef_moyenne_s6')  is-invalid  @enderror" name="coef_moyenne_s6" type="text"></td>
                             </div>
                         </tr>
                         <tr>
                             <div>
                                 <td><label for="">Coef moyenne licence</label></td>
-                                <td><input class="form-control @error('coef_moyenne_licence')  is-invalid  @enderror" name="coef_moyenne_licence" type="text"></td>
+                                <td><input value="1" class="form-control @error('coef_moyenne_licence')  is-invalid  @enderror" name="coef_moyenne_licence" type="text"></td>
                             </div>
                         </tr>
                         </table>
@@ -130,37 +130,37 @@
                                 <tr>
                                     <div>
                                         <td><label for="">ordinaireS1</label></td>
-                                        <td><input name="ordinaireS1" type="text"></td>
+                                        <td><input value="0" name="ordinaireS1" type="text"></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div>
                                         <td><label for="">ordinaireS2</label></td>
-                                        <td><input name="ordinaireS2" type="text"></td>
+                                        <td><input value="0" name="ordinaireS2" type="text"></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div>
                                         <td><label for="">ordinaireS3</label></td>
-                                        <td><input name="ordinaireS3" type="text"></td>
+                                        <td><input value="0" name="ordinaireS3" type="text"></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div>
                                         <td><label for="">ordinaireS4</label></td>
-                                        <td><input name="ordinaireS4" type="text"></td>
+                                        <td><input value="0" name="ordinaireS4" type="text"></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div>
                                         <td><label for="">ordinaireS5</label></td>
-                                        <td><input name="ordinaireS5" type="text"></td>
+                                        <td><input value="0" name="ordinaireS5" type="text"></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div>
                                         <td><label for="">ordinaireS6</label></td>
-                                        <td><input name="ordinaireS6" type="text"></td>
+                                        <td><input value="0" name="ordinaireS6" type="text"></td>
                                     </div>
                                 </tr>
                                 
@@ -173,37 +173,37 @@
                         <div class="col-6">
                             <div>
                                 <label for="">dureeDiplome3ans</label>
-                                <input name="dureeDiplome3ans" type="text">
+                                <input value="0" name="dureeDiplome3ans" type="text">
                             </div>
                             <div>
                                 <label for="">dureeDiplome4ans</label>
-                                <input name="dureeDiplome4ans" type="text">
+                                <input value="0" name="dureeDiplome4ans" type="text">
                             </div>
                             <div>
                                 <label for="">dureeDiplome5ans</label>
-                                <input name="dureeDiplome5ans" type="text">
+                                <input value="0" name="dureeDiplome5ans" type="text">
                             </div>
                             <div>
                                 <label for="">dureeDiplome6ans</label>
-                                <input name="dureeDiplome6ans" type="text">
+                                <input value="0" name="dureeDiplome6ans" type="text">
                             </div>
                         </div>
                         <div class="col-6 text-end">
                             <div>
                                 <label for="">ancienteDiplome0an</label>
-                                <input name="ancienteDiplome0an" type="text">
+                                <input value="0" name="ancienteDiplome0an" type="text">
                             </div>
                             <div>
                                 <label for="">ancienteDiplome1an</label>
-                                <input name="ancienteDiplome1an" type="text">
+                                <input value="0" name="ancienteDiplome1an" type="text">
                             </div>
                             <div>
                                 <label for="">ancienteDiplome2ans</label>
-                                <input  name="ancienteDiplome2ans" type="text">
+                                <input value="0"  name="ancienteDiplome2ans" type="text">
                             </div>
                             <div>
                                 <label for="">ancienteDiplome3ans</label>
-                                <input name="ancienteDiplome3ans" type="text">
+                                <input value="0" name="ancienteDiplome3ans" type="text">
                             </div>
                         </div>
                     </div>
@@ -214,53 +214,53 @@
                         <div class="col-6">
                             <div>
                                 <label for="">deugmin1</label>
-                                <input name="deugmin1" type="text">
+                                <input value="0" name="deugmin1" type="text">
                             </div>
                             <div>
                                 <label for="">deugmin2</label>
-                                <input name="deugmin2" type="text">
+                                <input value="0" name="deugmin2" type="text">
                             </div>
                             <div>
                                 <label for="">deugmin3</label>
-                                <input name="deugmin3" type="text">
+                                <input value="0" name="deugmin3" type="text">
                             </div>
                             <div>
                                 <label for="">deugmin4</label>
-                                <input name="deugmin4" type="text">
+                                <input value="0" name="deugmin4" type="text">
                             </div>
                             <div>
                                 <label for="">deugmin5</label>
-                                <input name="deugmin5" type="text">
+                                <input value="0" name="deugmin5" type="text">
                             </div>
                             <div>
                                 <label for="">deugmin6</label>
-                                <input name="deugmin6" type="text">
+                                <input value="0" name="deugmin6" type="text">
                             </div>
                         </div>
                         <div class="col-6 text-end">
                             <div>
                                 <label for="">deugmax1</label>
-                                <input name="deugmax1" type="text">
+                                <input value="0" name="deugmax1" type="text">
                             </div>
                             <div>
                                 <label for="">deugmax2</label>
-                                <input name="deugmax2" type="text">
+                                <input value="0" name="deugmax2" type="text">
                             </div>
                             <div>
                                 <label for="">deugmax3</label>
-                                <input name="deugmax3" type="text">
+                                <input value="0" name="deugmax3" type="text">
                             </div>
                             <div>
                                 <label for="">deugmax4</label>
-                                <input name="deugmax4" type="text">
+                                <input value="0" name="deugmax4" type="text">
                             </div>
                             <div>
                                 <label for="">deugmax5</label>
-                                <input name="deugmax5" type="text">
+                                <input value="0" name="deugmax5" type="text">
                             </div>
                             <div>
                                 <label for="">deugmax6</label>
-                                <input name="deugmax6" type="text">
+                                <input value="0" name="deugmax6" type="text">
                             </div>
                         </div>
                         
@@ -269,27 +269,27 @@
                         <div class="col-6">
                             <div>
                                 <label for="">bonusDeug1</label>
-                                <input name="bonusDeug1" type="text">
+                                <input value="0" name="bonusDeug1" type="text">
                             </div>
                             <div>
                                 <label for="">bonusDeug2</label>
-                                <input name="bonusDeug2" type="text">
+                                <input value="0" name="bonusDeug2" type="text">
                             </div>
                             <div>
                                 <label for="">bonusDeug3</label>
-                                <input name="bonusDeug3" type="text">
+                                <input value="0" name="bonusDeug3" type="text">
                             </div>
                             <div>
                                 <label for="">bonusDeug4</label>
-                                <input name="bonusDeug4" type="text">
+                                <input value="0" name="bonusDeug4" type="text">
                             </div>
                             <div>
                                 <label for="">bonusDeug5</label>
-                                <input name="bonusDeug5" type="text">
+                                <input value="0" name="bonusDeug5" type="text">
                             </div>
                             <div>
                                 <label for="">bonusDeug6</label>
-                                <input name="bonusDeug6" type="text">
+                                <input value="0" name="bonusDeug6" type="text">
                             </div>
                         </div>
                     </center>
@@ -301,53 +301,53 @@
                         <div class="col-6">
                             <div>
                                 <label for="">S5_S6_min1</label>
-                                <input name="S5_S6_min1" type="text">
+                                <input value="0" name="S5_S6_min1" type="text">
                             </div>
                             <div>
                                 <label for="">S5_S6_min2</label>
-                                <input name="S5_S6_min2" type="text">
+                                <input value="0" name="S5_S6_min2" type="text">
                             </div>
                             <div>
                                 <label for="">S5_S6_min3</label>
-                                <input name="S5_S6_min3" type="text">
+                                <input value="0" name="S5_S6_min3" type="text">
                             </div>
                             <div>
                                 <label for="">S5_S6_min4</label>
-                                <input name="S5_S6_min4" type="text">
+                                <input value="0" name="S5_S6_min4" type="text">
                             </div>
                             <div>
                                 <label for="">S5_S6_min5</label>
-                                <input name="S5_S6_min5" type="text">
+                                <input value="0" name="S5_S6_min5" type="text">
                             </div>
                             <div>
                                 <label for="">S5_S6_min6</label>
-                                <input name="S5_S6_min6" type="text">
+                                <input value="0" name="S5_S6_min6" type="text">
                             </div>
                         </div>
                         <div class="col-6 text-end">
                             <div>
                                 <label for="">S5_S6_max1</label>
-                                <input name="S5_S6_max1" type="text">
+                                <input value="0" name="S5_S6_max1" type="text">
                             </div>
                             <div>
                                 <label for="">S5_S6_max2</label>
-                                <input name="S5_S6_max2" type="text">
+                                <input value="0" name="S5_S6_max2" type="text">
                             </div>
                             <div>
                                 <label for="">S5_S6_max3</label>
-                                <input name="S5_S6_max3" type="text">
+                                <input value="0" name="S5_S6_max3" type="text">
                             </div>
                             <div>
                                 <label for="">S5_S6_max4</label>
-                                <input name="S5_S6_max4" type="text">
+                                <input value="0" name="S5_S6_max4" type="text">
                             </div>
                             <div>
                                 <label for="">S5_S6_max5</label>
-                                <input name="S5_S6_max5" type="text">
+                                <input value="0"  name="S5_S6_max5" type="text">
                             </div>
                             <div>
                                 <label for="">S5_S6_max6</label>
-                                <input name="S5_S6_max6" type="text">
+                                <input value="0" name="S5_S6_max6" type="text">
                             </div>
                         </div>
                         
@@ -356,27 +356,27 @@
                         <div class="col-6">
                             <div>
                                 <label for="">bonus_S5_S6_1</label>
-                                <input name="bonus_S5_S6_1" type="text">
+                                <input value="0" name="bonus_S5_S6_1" type="text">
                             </div>
                             <div>
                                 <label for="">bonus_S5_S6_2</label>
-                                <input name="bonus_S5_S6_2" type="text">
+                                <input value="0" name="bonus_S5_S6_2" type="text">
                             </div>
                             <div>
                                 <label for="">bonus_S5_S6_3</label>
-                                <input name="bonus_S5_S6_3" type="text">
+                                <input value="0" name="bonus_S5_S6_3" type="text">
                             </div>
                             <div>
                                 <label for="">bonus_S5_S6_4</label>
-                                <input name="bonus_S5_S6_4" type="text">
+                                <input value="0" name="bonus_S5_S6_4" type="text">
                             </div>
                             <div>
                                 <label for="">bonus_S5_S6_5</label>
-                                <input name="bonus_S5_S6_5" type="text">
+                                <input value="0" name="bonus_S5_S6_5" type="text">
                             </div>
                             <div>
                                 <label for="">bonus_S5_S6_6</label>
-                                <input name="bonus_S5_S6_6" type="text">
+                                <input value="0" name="bonus_S5_S6_6" type="text">
                             </div>
                         </div>
                     </center>
@@ -389,53 +389,53 @@
                         <div class="col-6">
                             <div>
                                 <label for="">licence_min_1</label>
-                                <input name="licence_min_1" type="text">
+                                <input value="0" name="licence_min_1" type="text">
                             </div>
                             <div>
                                 <label for="">licence_min_2</label>
-                                <input name="licence_min_2" type="text">
+                                <input value="0" name="licence_min_2" type="text">
                             </div>
                             <div>
                                 <label for="">licence_min_3</label>
-                                <input name="licence_min_3" type="text">
+                                <input value="0" name="licence_min_3" type="text">
                             </div>
                             <div>
                                 <label for="">licence_min_4</label>
-                                <input name="licence_min_4" type="text">
+                                <input value="0" name="licence_min_4" type="text">
                             </div>
                             <div>
                                 <label for="">licence_min_5</label>
-                                <input name="licence_min_5" type="text">
+                                <input value="0" name="licence_min_5" type="text">
                             </div>
                             <div>
                                 <label for="">licence_min_6</label>
-                                <input name="licence_min_6" type="text">
+                                <input value="0" name="licence_min_6" type="text">
                             </div>
                         </div>
                         <div class="col-6 text-end">
                             <div>
                                 <label for="">licence_max_1</label>
-                                <input name="licence_max_1" type="text">
+                                <input value="0" name="licence_max_1" type="text">
                             </div>
                             <div>
                                 <label for="">licence_max_2</label>
-                                <input name="licence_max_2" type="text">
+                                <input value="0" name="licence_max_2" type="text">
                             </div>
                             <div>
                                 <label for="">licence_max_3</label>
-                                <input name="licence_max_3" type="text">
+                                <input value="0" name="licence_max_3" type="text">
                             </div>
                             <div>
                                 <label for="">licence_max_4</label>
-                                <input name="licence_max_4" type="text">
+                                <input value="0" name="licence_max_4" type="text">
                             </div>
                             <div>
                                 <label for="">licence_max_5</label>
-                                <input name="licence_max_5" type="text">
+                                <input value="0" name="licence_max_5" type="text">
                             </div>
                             <div>
                                 <label for="">licence_max_6</label>
-                                <input name="licence_max_6" type="text">
+                                <input value="0" name="licence_max_6" type="text">
                             </div>
                         </div>
                         
@@ -444,27 +444,27 @@
                         <div class="col-6">
                             <div>
                                 <label for="">bonus_licence_1</label>
-                                <input name="bonus_licence_1" type="text">
+                                <input value="0" name="bonus_licence_1" type="text">
                             </div>
                             <div>
                                 <label for="">bonus_licence_2</label>
-                                <input name="bonus_licence_2" type="text">
+                                <input value="0" name="bonus_licence_2" type="text">
                             </div>
                             <div>
                                 <label for="">bonus_licence_3</label>
-                                <input name="bonus_licence_3" type="text">
+                                <input value="0" name="bonus_licence_3" type="text">
                             </div>
                             <div>
                                 <label for="">bonus_licence_4</label>
-                                <input name="bonus_licence_4" type="text">
+                                <input value="0" name="bonus_licence_4" type="text">
                             </div>
                             <div>
                                 <label for="">bonus_licence_5</label>
-                                <input name="bonus_licence_5" type="text">
+                                <input value="0" name="bonus_licence_5" type="text">
                             </div>
                             <div>
                                 <label for="">bonus_licence_6</label>
-                                <input name="bonus_licence_6" type="text">
+                                <input value="0" name="bonus_licence_6" type="text">
                             </div>
                         </div>
                     </center>
